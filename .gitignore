@@ -113,7 +113,4 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-#configh.json for security
-config.json
-
 # End of https://www.toptal.com/developers/gitignore/api/node
