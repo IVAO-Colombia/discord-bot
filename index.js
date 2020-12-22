@@ -1,27 +1,25 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
-
 const client = new Discord.Client();
 
-const prefix = process.env.PREFIX;
+client.on("ready", () => {
+  client.user.setActivity("bot en heroku", { type: "WATCHING" });
+  console.log("Listo!");
+});
 
-client.on("message", function(message) {
+let prefix = process.env.PREFIX;
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(prefix) || !message.guild) return;
   if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
 
-  const commandBody = message.content.slice(prefix.length);
-  const args = commandBody.split(' ');
-  const command = args.shift().toLowerCase();
+  const cont = message.content.split(" ").slice(1);
+  const args = cont.join(" ");
 
-  if (command === "ping") {
-    const timeTaken = Date.now() - message.createdTimestamp;
-    message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
-  }
-
-  else if (command === "sum") {
-    const numArgs = args.map(x => parseFloat(x));
-    const sum = numArgs.reduce((counter, x) => counter += x);
-    message.reply(`The sum of all the arguments you provided is ${sum}!`);
+  if (message.content.startsWith(prefix + "ping")) {
+    message.channel.send("pong");
+  } else if (message.content.startsWith(prefix + "say")) {
+    if (!args) return;
+    message.channel.send(args);
   }
 });
 
