@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/IVAO-Colombia/discord-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "@discordjs/opus": "^0.3.3",
+    "discord.js": "^12.5.1",
+    "ffmpeg-static": "^4.2.7"
   }
 }
