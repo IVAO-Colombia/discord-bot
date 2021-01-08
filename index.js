@@ -110,7 +110,7 @@ client.on("message", (message) => {
     });
   }
 
-  if (message.content.startsWith(prefix + "caut")) {
+  if (message.content.startsWith(prefix + "cesp")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
       return message.reply("You must be in a voice channel.");
@@ -121,12 +121,12 @@ client.on("message", (message) => {
     // Joining the channel and creating a VoiceConnection.
     message.member.voice.channel.join().then((VoiceConnection) => {
       // Playing the music, and, on finish, disconnecting the bot.
-      VoiceConnection.play("./audios/Comandante/caut.mp3").on("finish", () =>
+      VoiceConnection.play("./audios/Comandante/cesp.mp3").on("finish", () =>
         VoiceConnection.disconnect()
       );
     });
   }
-  if (message.content.startsWith(prefix + "ccol")) {
+  if (message.content.startsWith(prefix + "cpetr")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
       return message.reply("You must be in a voice channel.");
@@ -137,11 +137,50 @@ client.on("message", (message) => {
     // Joining the channel and creating a VoiceConnection.
     message.member.voice.channel.join().then((VoiceConnection) => {
       // Playing the music, and, on finish, disconnecting the bot.
-      VoiceConnection.play("./audios/Comandante/ccol.mp3").on("finish", () =>
+      VoiceConnection.play("./audios/Comandante/cpetr.mp3").on("finish", () =>
         VoiceConnection.disconnect()
       );
     });
   }
+
+
+
+  if (message.content.startsWith(prefix + "lmzn")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/llamas/lmzn.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+
+  if (message.content.startsWith(prefix + "peng")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/pedraza/peng.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+
+
+
 
   if (message.content.startsWith(prefix + "fcata")) {
     // Checking if the message author is in a voice channel.
