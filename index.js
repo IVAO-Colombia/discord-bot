@@ -110,7 +110,7 @@ client.on("message", (message) => {
     });
   }
 
-  if (message.content.startsWith(prefix + "cesp")) {
+  if (message.content.startsWith(prefix + "mwif")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
       return message.reply("You must be in a voice channel.");
@@ -121,7 +121,7 @@ client.on("message", (message) => {
     // Joining the channel and creating a VoiceConnection.
     message.member.voice.channel.join().then((VoiceConnection) => {
       // Playing the music, and, on finish, disconnecting the bot.
-      VoiceConnection.play("./audios/Comandante/cesp.mp3").on("finish", () =>
+      VoiceConnection.play("./audios/Comandante/mwif.mp3").on("finish", () =>
         VoiceConnection.disconnect()
       );
     });
