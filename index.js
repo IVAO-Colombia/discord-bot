@@ -286,6 +286,91 @@ client.on("message", (message) => {
   }
 
 
+
+  if (message.content.startsWith(prefix + "rcop")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/restrepo/rcop.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "ridc")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/restrepo/ridc.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "rnhp")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/restrepo/rnhp.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "rrej")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/restrepo/rrej.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "rwrl")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/restrepo/rwrl.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+
+
+
+
   if (message.content.startsWith(prefix + "cora")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
