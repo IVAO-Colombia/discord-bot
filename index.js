@@ -154,7 +154,7 @@ client.on("message", (message) => {
     // Joining the channel and creating a VoiceConnection.
     message.member.voice.channel.join().then((VoiceConnection) => {
       // Playing the music, and, on finish, disconnecting the bot.
-      VoiceConnection.play("./audios/Comandante/mcap.mp3").on("finish", () =>
+      VoiceConnection.play("./audios/llamas/mcap.mp3").on("finish", () =>
         VoiceConnection.disconnect()
       );
     });
