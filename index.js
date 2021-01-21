@@ -76,6 +76,22 @@ client.on("message", (message) => {
       );
     });
   }
+  if (message.content.startsWith(prefix + "pats")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/llamas/pats.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
   if (message.content.startsWith(prefix + "skinner")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
