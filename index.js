@@ -53,6 +53,10 @@ client.on("message", (message) => {
         |rrej|
         |rwrl|
         |oqcl|
+        |yatr|
+        |ychz|
+        |yesj|
+        |ytva|
         |ahpc|
         |alpm|`,
       },
@@ -74,6 +78,72 @@ client.on("message", (message) => {
       );
     });
   }
+
+  if (message.content.startsWith(prefix + "yatr")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/yeye/yatr.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "ychz")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/yeye/ychz.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "yesj")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/yeye/yesj.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+  if (message.content.startsWith(prefix + "ytva")) {
+    // Checking if the message author is in a voice channel.
+    if (!message.member.voice.channel)
+      return message.reply("You must be in a voice channel.");
+    // Checking if the bot is in a voice channel.
+    if (message.guild.me.voice.channel)
+      return message.reply("I'm already playing.");
+
+    // Joining the channel and creating a VoiceConnection.
+    message.member.voice.channel.join().then((VoiceConnection) => {
+      // Playing the music, and, on finish, disconnecting the bot.
+      VoiceConnection.play("./audios/yeye/ytva.mp3").on("finish", () =>
+        VoiceConnection.disconnect()
+      );
+    });
+  }
+
   if (message.content.startsWith(prefix + "pedra")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
