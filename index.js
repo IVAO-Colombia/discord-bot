@@ -1,5 +1,14 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const { Client, GatewayIntentBits } = require("discord.js");
+require("dotenv").config();
+
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers,
+  ],
+});
 
 client.on("ready", () => {
   client.user.setActivity("As Real as It Gets", { type: "WATCHING" });
@@ -100,7 +109,6 @@ client.on("message", (message) => {
     });
   }
 
-
   if (message.content.startsWith(prefix + "yevl")) {
     // Checking if the message author is in a voice channel.
     if (!message.member.voice.channel)
@@ -117,7 +125,6 @@ client.on("message", (message) => {
       );
     });
   }
-
 
   if (message.content.startsWith(prefix + "drope")) {
     // Checking if the message author is in a voice channel.
