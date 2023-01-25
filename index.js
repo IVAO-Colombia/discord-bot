@@ -1,4 +1,9 @@
-const { Client, GatewayIntentBits } = require("discord.js");
+const {
+  Client,
+  Events,
+  GatewayIntentBits,
+  EmbedBuilder,
+} = require("discord.js");
 require("dotenv").config();
 
 const client = new Client({
@@ -7,6 +12,9 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.DirectMessages,
   ],
 });
 
@@ -15,65 +23,73 @@ client.on("ready", () => {
   console.log("Listo!");
 });
 
+// When the client is ready, run this code (only once)
+// We use 'c' for the event parameter to keep it separate from the already defined 'client'
+client.once(Events.ClientReady, (c) => {
+  console.log(`Ready! Logged in as ${c.user.tag}`);
+});
+
+// client.on(Events.InteractionCreate, (interaction) => {
+//   console.log(interaction);
+// });
+
 let prefix = process.env.PREFIX;
-client.on("message", (message) => {
+client.on("messageCreate", (message) => {
   if (!message.content.startsWith(prefix) || !message.guild) return;
   if (message.author.bot) return;
   const cont = message.content.split(" ").slice(1);
   const args = cont.join(" ");
   if (message.content.startsWith(prefix + "info")) {
-    message.reply({
-      embed: {
-        description: `# Hola Malditos Mancos
-        |Comandos|
-        |----------------|
-        |inop|
-        |cora|
-        |pedra|
-        |urss|
-        |mwif|
-        |mnov|
-        |mgay|
-        |gfrc|
-        |pats|
-        |skinner|
-        |kpi|
-        |btss|
-        |t18v|
-        |tchk|
-        |typc|
-        |cpetr|
-        |mcap|
-        |lmzn|
-        |ldtv|
-        |lmch|
-        |cnpi|
-        |lcal|
-        |peng|
-        |ptpn|
-        |fcpe|
-        |fcata|
-        |fcura|
-        |flive|
-        |fpoli|
-        |yfufi|
-        |yevl|
-        |drope|
-        |rcop|
-        |ridc|
-        |rnhp|
-        |rrgr|
-        |rrej|
-        |rwrl|
-        |oqcl|
-        |yatr|
-        |ychz|
-        |yesj|
-        |ytva|
-        |ahpc|
-        |alpm|`,
-      },
-    });
+    const exampleEmbed = new EmbedBuilder()
+      .setDescription(`# Hola Malditos Mancos
+    |Comandos|
+    |----------------|
+    |inop|
+    |cora|
+    |pedra|
+    |urss|
+    |mwif|
+    |mnov|
+    |mgay|
+    |gfrc|
+    |pats|
+    |skinner|
+    |kpi|
+    |btss|
+    |t18v|
+    |tchk|
+    |typc|
+    |cpetr|
+    |mcap|
+    |lmzn|
+    |ldtv|
+    |lmch|
+    |cnpi|
+    |lcal|
+    |peng|
+    |ptpn|
+    |fcpe|
+    |fcata|
+    |fcura|
+    |flive|
+    |fpoli|
+    |yfufi|
+    |yevl|
+    |drope|
+    |rcop|
+    |ridc|
+    |rnhp|
+    |rrgr|
+    |rrej|
+    |rwrl|
+    |oqcl|
+    |yatr|
+    |ychz|
+    |yesj|
+    |ytva|
+    |ahpc|
+    |alpm|`);
+    message.reply({ embeds: [exampleEmbed] });
   }
   if (message.content.startsWith(prefix + "inop")) {
     // Checking if the message author is in a voice channel.
@@ -807,6 +823,7 @@ client.on("message", (message) => {
     if (!message.member.voice.channel)
       return message.reply("You must be in a voice channel.");
     // Checking if the bot is in a voice channel.
+
     if (message.guild.me.voice.channel)
       return message.reply("I'm already playing.");
 
