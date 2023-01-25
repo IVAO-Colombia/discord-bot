@@ -823,7 +823,6 @@ client.on("messageCreate", (message) => {
     if (!message.member.voice.channel)
       return message.reply("You must be in a voice channel.");
     // Checking if the bot is in a voice channel.
-
     if (message.guild.me.voice.channel)
       return message.reply("I'm already playing.");
 
